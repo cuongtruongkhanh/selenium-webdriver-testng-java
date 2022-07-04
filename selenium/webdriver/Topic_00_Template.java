@@ -1,15 +1,13 @@
 package webdriver;
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_01_Setup_Environment {
+public class Topic_00_Template {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
@@ -23,24 +21,18 @@ public class Topic_01_Setup_Environment {
 	}
 
 	@Test
-	public void TC_01_ValidateCurrentUrl() {
-		// Login Page Url matching
-		String loginPageUrl = driver.getCurrentUrl();
-		Assert.assertEquals(loginPageUrl, "https://www.facebook.com/");
+	public void TC_01_() {
+		
 	}
 
 	@Test
-	public void TC_02_ValidatePageTitle() {
-		// Login Page title change
-		String loginPageTitle = driver.getTitle();
-		Assert.assertEquals(loginPageTitle, "Facebook – log in or sign up");
-		//test clone code
+	public void TC_02_() {
+		
 	}
 
 	@Test
-	public void TC_03_LoginFormDisplayed() {
-		// Login form displayed123
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@data-testid='royal_login_form']")).isDisplayed());
+	public void TC_03_() {
+		
 	}
 
 	@AfterClass
