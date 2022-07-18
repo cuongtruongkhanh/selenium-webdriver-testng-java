@@ -12,6 +12,15 @@ import org.testng.annotations.Test;
 public class Topic_03_Xpath_part1 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
+	
+	public void SleepSecond(long TimeInSecond) {
+		try {
+			Thread.sleep(TimeInSecond * 1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@BeforeClass
 	public void beforeClass() {
@@ -25,7 +34,11 @@ public class Topic_03_Xpath_part1 {
 	@Test
 	public void TC_01_Register_With_Empty_Data() {
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
 
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("");
@@ -49,7 +62,11 @@ public class Topic_03_Xpath_part1 {
 	@Test
 	public void TC_02_Register_with_Invalid_Email() {
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
 
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("Khanh Cuong");
@@ -68,7 +85,11 @@ public class Topic_03_Xpath_part1 {
 	@Test
 	public void TC_03_Incorrect_Confirm_Email() {
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
 
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("Khanh Cuong");
@@ -85,10 +106,13 @@ public class Topic_03_Xpath_part1 {
 
 	@Test
 	public void TC_04_PW_less_than_6_characters() {
-
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
-
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
+		
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("Khanh Cuong");
 		driver.findElement(By.id("txtEmail")).sendKeys("1234@gmail.com");
@@ -109,8 +133,12 @@ public class Topic_03_Xpath_part1 {
 	@Test
 	public void TC_05_Incorrect_Confirm_PW() {
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
-
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
+		
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("Khanh Cuong");
 		driver.findElement(By.id("txtEmail")).sendKeys("1234@gmail.com");
@@ -127,7 +155,11 @@ public class Topic_03_Xpath_part1 {
 	@Test
 	public void TC_06_Incorrect_TextPhone() {
 		// Access to registration
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		driver.get("https://alada.vn");
+		//click on button DK //a[contains(text(),'Đăng Ký')]
+		driver.findElement(By.xpath("//a[contains(text(),'Đăng Ký')]")).click();
+		// Cho khoang 3 giay
+		SleepSecond(3);
 
 		// Fill up information into Registration form
 		driver.findElement(By.id("txtFirstname")).sendKeys("Khanh Cuong");
