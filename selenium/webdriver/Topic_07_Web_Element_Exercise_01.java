@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_07_Web_Element_Exercise {
+public class Topic_07_Web_Element_Exercise_01 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
@@ -26,7 +26,7 @@ public class Topic_07_Web_Element_Exercise {
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
 
