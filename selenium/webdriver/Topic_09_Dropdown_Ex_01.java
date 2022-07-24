@@ -12,7 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_08_Dropdown_Ex_01 {
+public class Topic_09_Dropdown_Ex_01 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	Select select;
