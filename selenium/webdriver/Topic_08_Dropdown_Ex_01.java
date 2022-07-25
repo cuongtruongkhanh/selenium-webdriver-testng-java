@@ -71,14 +71,23 @@ public class Topic_08_Dropdown_Ex_01 {
 		driver.findElement(By.className("ico-account")).click();
 		SleepSecond(1);
 		//verify
+		
+		
 		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='gender-male']")).isSelected());
 		Assert.assertEquals(driver.findElement(By.id("FirstName")).getAttribute("value"), "Khanh Cuong");
 		Assert.assertEquals(driver.findElement(By.id("LastName")).getAttribute("value"), "Truong");
-		Assert.assertEquals(driver.findElement(By.name("DateOfBirthDay")).getAttribute("value"), "25");
-		Assert.assertEquals(driver.findElement(By.name("DateOfBirthMonth")).getAttribute("value"), "4");
-		Assert.assertEquals(driver.findElement(By.name("DateOfBirthYear")).getAttribute("value"), "1990");
-
 		
+		// Verify DateOfBirthDay
+		select = new Select(driver.findElement(By.name("DateOfBirthDay")));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "25");
+		
+		// Verify Month
+		select = new Select(driver.findElement(By.name("DateOfBirthMonth")));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "April");
+		
+		// Verify Year
+		select = new Select(driver.findElement(By.name("DateOfBirthYear")));
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), "1990");
 		
 	}
 
