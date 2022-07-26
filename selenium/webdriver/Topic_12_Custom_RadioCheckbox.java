@@ -39,10 +39,11 @@ public class Topic_12_Custom_RadioCheckbox {
 	@Test
 	public void TC_01_() {
 		driver.get("https://docs.google.com/forms/d/e/1FAIpQLSfiypnd69zhuDkjKgqvpID9kwO29UCzeCVrGGtbNPZXQok0jA/viewform");
+		sleepSecond(2);
 		
 		By canthoRadio = By.xpath("//div[@aria-label='Cần Thơ']");
 		//click by js
-		jsExecutor.executeScript("arguments[0].click();", canthoRadio);
+		jsExecutor.executeScript("arguments[0].click();", driver.findElement(canthoRadio));
 		
 		//verify click
 		Assert.assertEquals(driver.findElement(canthoRadio).getAttribute("aria-checked"), "true");

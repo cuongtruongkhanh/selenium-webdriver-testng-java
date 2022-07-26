@@ -1,0 +1,195 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 264241152 bytes for Failed to commit area from 0x0000000704200000 to 0x0000000713e00000 of length 264241152.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3284), pid=93516, tid=53648
+#
+# JRE version:  (11.0.14+8) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.14+8-LTS-263, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -ea -Dfile.encoding=UTF-8 org.testng.remote.RemoteTestNG -serport 60471 -protocol json -d E:\__Project testing\02. Selenium Webdriver\selenium-webdriver-testng-java\test-output C:\Users\CUONG~1.TRU\AppData\Local\Temp\testng-eclipse--1548214726\testng-customsuite.xml
+
+Host: Intel(R) Core(TM) i5-1035G7 CPU @ 1.20GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1202)
+Time: Tue Jul 26 15:03:30 2022 SE Asia Standard Time elapsed time: 0.023641 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000022b4f503000):  JavaThread "Unknown thread" [_thread_in_vm, id=53648, stack(0x000000afa8c00000,0x000000afa8d00000)]
+
+Stack: [0x000000afa8c00000,0x000000afa8d00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6296da]
+V  [jvm.dll+0x76323f]
+V  [jvm.dll+0x7648e9]
+V  [jvm.dll+0x764f73]
+V  [jvm.dll+0x23d7c8]
+V  [jvm.dll+0x626a5a]
+V  [jvm.dll+0x61b7f5]
+V  [jvm.dll+0x2f262c]
+V  [jvm.dll+0x2f24b2]
+V  [jvm.dll+0x2f71d6]
+V  [jvm.dll+0x339bdf]
+V  [jvm.dll+0x339610]
+V  [jvm.dll+0x2cfc48]
+V  [jvm.dll+0x2d0db6]
+V  [jvm.dll+0x73d857]
+V  [jvm.dll+0x73f0ef]
+V  [jvm.dll+0x346909]
+V  [jvm.dll+0x723160]
+V  [jvm.dll+0x3b551f]
+V  [jvm.dll+0x3b7631]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000022b4d291ac0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000022b4f519800 GCTaskThread "GC Thread#0" [stack: 0x000000afa8d00000,0x000000afa8e00000] [id=78312]
+  0x0000022b4f57a000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000afa8e00000,0x000000afa8f00000] [id=93152]
+  0x0000022b4f57b000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000afa8f00000,0x000000afa9000000] [id=87804]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffff313eed7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000022b4f5000c0] Heap_lock - owner thread: 0x0000022b4f503000
+
+Heap address: 0x0000000704200000, size: 4030 MB, Compressed Oops mode: Non-zero based: 0x0000000704200000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff795460000 - 0x00007ff79546f000 	C:\Program Files\Java\jdk-11.0.14\bin\javaw.exe
+0x00007ff832c70000 - 0x00007ff832e65000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8321d0000 - 0x00007ff83228e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff830390000 - 0x00007ff830659000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x0000000076fe0000 - 0x0000000077075000 	C:\WINDOWS\System32\SYSFER.DLL
+0x00007ff832570000 - 0x00007ff83261c000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff830cc0000 - 0x00007ff830d5e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff832130000 - 0x00007ff8321cb000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff832290000 - 0x00007ff8323ba000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff830950000 - 0x00007ff830a50000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff827580000 - 0x00007ff827598000 	C:\Program Files\Java\jdk-11.0.14\bin\jli.dll
+0x00007ff8318d0000 - 0x00007ff831a71000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff830a50000 - 0x00007ff830a72000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff830d60000 - 0x00007ff830d8b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff830760000 - 0x00007ff83086b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff8306c0000 - 0x00007ff83075d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff81fa40000 - 0x00007ff81fa55000 	C:\Program Files\Java\jdk-11.0.14\bin\VCRUNTIME140.dll
+0x00007ff81df80000 - 0x00007ff81e21a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ff824760000 - 0x00007ff82476a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff830db0000 - 0x00007ff830de0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff8016c0000 - 0x00007ff801728000 	C:\WWCNT\SYSTEM\printhk64.dll
+0x00007ff82ee50000 - 0x00007ff82ee83000 	C:\WINDOWS\SYSTEM32\ntmarta.dll
+0x00007ffffa830000 - 0x00007ffffa8cb000 	C:\Program Files\Java\jdk-11.0.14\bin\msvcp140.dll
+0x00007ffff2e60000 - 0x00007ffff3976000 	C:\Program Files\Java\jdk-11.0.14\bin\server\jvm.dll
+0x00007ff831120000 - 0x00007ff831128000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff810a30000 - 0x00007ff810a39000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff831e40000 - 0x00007ff831eab000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff81bca0000 - 0x00007ff81bcc7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff82ec10000 - 0x00007ff82ec22000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff827420000 - 0x00007ff827430000 	C:\Program Files\Java\jdk-11.0.14\bin\verify.dll
+0x00007ff82e000000 - 0x00007ff82e1e4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff82dfd0000 - 0x00007ff82dffc000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff8308c0000 - 0x00007ff830943000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff81fa10000 - 0x00007ff81fa38000 	C:\Program Files\Java\jdk-11.0.14\bin\java.dll
+0x00007ff825620000 - 0x00007ff82562a000 	C:\Program Files\Java\jdk-11.0.14\bin\jimage.dll
+0x00007ff81f5b0000 - 0x00007ff81f5c6000 	C:\Program Files\Java\jdk-11.0.14\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.14\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\WWCNT\SYSTEM;C:\Program Files\Java\jdk-11.0.14\bin\server
+
+VM Arguments:
+jvm_args: -ea -Dfile.encoding=UTF-8 
+java_command: org.testng.remote.RemoteTestNG -serport 60471 -protocol json -d E:\__Project testing\02. Selenium Webdriver\selenium-webdriver-testng-java\test-output C:\Users\CUONG~1.TRU\AppData\Local\Temp\testng-eclipse--1548214726\testng-customsuite.xml
+java_class_path (initial): E:\__Project testing\01. Tool\eclipse-java-2022-03-R-win32-x86_64\eclipse\configuration\org.eclipse.osgi\435\0\.cp\lib\testng-remote.jar;E:\__Project testing\02. Selenium Webdriver\selenium-webdriver-testng-java\bin;E:\__Project testing\02. Selenium Webdriver\selenium-webdriver-testng-java\libraries\selenium-server-standalone-3.141.59.jar;E:\__Project testing\02. Selenium Webdriver\selenium-webdriver-testng-java\libraries\testng-6.14.3.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 264241152                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4225761280                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=E:/__Project testing/01. Tool/eclipse-java-2022-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin/server;E:/__Project testing/01. Tool/eclipse-java-2022-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;C:\Users\cuong.truong\AppData\Local\Microsoft\WindowsApps;C:\adb;E:\HU-Remote\putty;C:\Program Files (x86)\Vector CANdb++ 3.1\Exec32;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\cuong.truong\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\cuong.truong\AppData\Local\Programs\Python\Python37\;C:\Users\cuong.truong\AppData\Local\Microsoft\WindowsApps;;E:\__Project testing\01. Tool\eclipse-java-2022-03-R-win32-x86_64\eclipse;
+USERNAME=cuong.truong
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 126 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.1202)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 126 stepping 5 microcode 0x78, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, evex, sha, fma
+
+Memory: 4k page, system-wide physical 16118M (1817M free)
+TotalPageFile size 16118M (AvailPageFile size 128M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 61M, peak: 313M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.14+8-LTS-263) for windows-amd64 JRE (11.0.14+8-LTS-263), built on Dec  7 2021 21:53:57 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.
