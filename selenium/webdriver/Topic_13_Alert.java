@@ -73,7 +73,7 @@ public class Topic_13_Alert {
 		
 	}
 
-	@Test
+//	@Test
 	public void TC_03_Prompt_Alert() {
 		driver.get("https://automationfc.github.io/basic-form/");
 		sleepSecond(2);
@@ -84,7 +84,7 @@ public class Topic_13_Alert {
 		alert = driver.switchTo().alert();
 		
 		//verify title
-		Assert.assertEquals(alert.getText(), "I am a JS Prompt");
+		Assert.assertEquals(alert.getText(), "I am a JS prompt");
 		
 		String inputAlert = "Test";
 		// accept alert
@@ -97,10 +97,47 @@ public class Topic_13_Alert {
 		
 	}
 
-	@Test
-	public void TC_04_() {
+//	@Test
+	public void TC_04_Authenticate_Alert_trick() {
+		String username = "admin";
+		String password = "admin";
+		
+		// Passthrough http://username:password@url
+		// Link: http://the-internet.herokuapp.com/basic_auth
+		
+		String url = "http://" + username + ":" + password + "@" + "the-internet.herokuapp.com/basic_auth";
+		
+		driver.get(url);
+		
+		//verify
+		Assert.assertTrue(driver.findElement(By.cssSelector("div#content p")).getText().contains("Congratulations! You must have the proper credentials"));
 		
 	}
+	
+	
+	@Test
+	public void TC_05_Authenticate_Alert_trick() {
+		String username = "admin";
+		String password = "admin";
+		
+		driver.get("http://the-internet.herokuapp.com/");
+		
+		String BasicAuthLink = driver.findElement(By.xpath("//a[text()='Basic Auth']")).getAttribute("href");
+		
+		String[] AuthenLinkArray = BasicAuthLink.split("//");
+		
+		System.out.println(AuthenLinkArray[0]);
+		System.out.println(AuthenLinkArray[1]);
+		// Passthrough http://username:password@url
+		String url = AuthenLinkArray[0] + "//" + username + ":" + password + "@" + AuthenLinkArray[1];
+		
+		driver.get(url);
+
+		// verify
+		Assert.assertTrue(driver.findElement(By.cssSelector("div#content p")).getText().contains("Congratulations! You must have the proper credentials"));
+		sleepSecond(2);
+	}
+	
 	
 	@AfterClass
 	public void afterClass() {
