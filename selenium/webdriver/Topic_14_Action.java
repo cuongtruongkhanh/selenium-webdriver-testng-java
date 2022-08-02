@@ -70,7 +70,7 @@ public class Topic_14_Action {
 		action.click(HomeandBath).perform();
 		sleepSecond(2);
 		
-		//Verify
+		//Verify 123
 		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='Kids Home Bath']")).isDisplayed());
 		
 		
