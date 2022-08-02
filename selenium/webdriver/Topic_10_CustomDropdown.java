@@ -47,20 +47,24 @@ public class Topic_10_CustomDropdown {
 
 	}
 
-//	@Test
+	@Test
 	public void TC_01_JQuery() {
 		driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");		
-		
-		//chon item so 10
-		selectItemInCustomDropdown("span#number-button", "ul#number-menu>li>div", "19");
-		
-		//Verify da chon so 10 - span#number-button>span.ui-selectmenu-text
-		Assert.assertEquals(driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText(), "19");
 		
 		// chon item so 5
 		selectItemInCustomDropdown("span#number-button", "ul#number-menu>li>div", "5");
 		Assert.assertEquals(driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText(), "5");
+		driver.navigate().refresh();
 		
+		//chon item so 10
+		selectItemInCustomDropdown("span#number-button", "ul#number-menu>li>div", "10");
+		Assert.assertEquals(driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText(), "10");
+		driver.navigate().refresh();
+		
+		// chon item so 5
+		selectItemInCustomDropdown("span#number-button", "ul#number-menu>li>div", "19");
+		Assert.assertEquals(driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText(), "19");
+		driver.navigate().refresh();
 	}
 	
 	public void selectItemInCustomDropdown(String parentLocator, String childLocator, String expectedTextItem) {
@@ -79,13 +83,17 @@ public class Topic_10_CustomDropdown {
 			if(actualTextItem.equals(expectedTextItem)) {
 				//True -> Scroll đến mép trên của Element
 				//False -> Scroll đến mép dưới của Element
+				System.out.println(item.getText());
 				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
-				sleepSecond(1);
+				sleepSecond(1);		
 				item.click();
 				sleepSecond(1);
 				break;
 			}
+			
 		}
+		
+		
 		
 		
 	}
@@ -160,7 +168,7 @@ public class Topic_10_CustomDropdown {
 		
 	}
 	
-	@Test
+//	@Test
 	public void TC_05_Semantic() {
 		driver.get("https://react.semantic-ui.com/maximize/dropdown-example-search-selection/");
 		
