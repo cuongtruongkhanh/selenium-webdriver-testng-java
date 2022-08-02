@@ -54,6 +54,7 @@ public class Topic_10_CustomDropdown {
 		// chon item so 5
 		selectItemInCustomDropdown("span#number-button", "ul#number-menu>li>div", "5");
 		Assert.assertEquals(driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText(), "5");
+		//refresh page
 		driver.navigate().refresh();
 		
 		//chon item so 10
