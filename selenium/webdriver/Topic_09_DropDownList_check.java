@@ -39,6 +39,7 @@ public class Topic_09_DropDownList_check {
 	
 		selectItemDropDownCustomHaveScroll("span#number-button", "ul#number-menu>li>div", "5");
 		Assert.assertEquals("5", driver.findElement(By.cssSelector("span#number-button>span.ui-selectmenu-text")).getText());
+		//refresh page
 		driver.navigate().refresh();
 		
 		selectItemDropDownCustomHaveScroll("span#number-button", "ul#number-menu>li>div", "10");
