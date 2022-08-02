@@ -11,6 +11,15 @@ public class Topic_00_Template {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
+	public void sleepSecond(long timeSleep) {
+		try {
+			Thread.sleep(timeSleep*1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");

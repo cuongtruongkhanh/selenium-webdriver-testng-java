@@ -53,7 +53,7 @@ public class Topic_14_Action {
 		
 		//Verify
 		Assert.assertEquals(driver.findElement(By.className("ui-tooltip-content")).getText(), "We ask for your age only for statistical purposes.");
-		
+		//verify
 		
 	}
 
