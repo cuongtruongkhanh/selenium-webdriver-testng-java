@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -38,10 +39,12 @@ public class Topic_16_iFrame {
 
 	}
 
-	@Test
+	//@Test
 	public void TC_01_iFrame_Kyna() {
 		driver.get("https://kyna.vn/");
 		sleepSecond(1);
+		
+		//swith to ifram FB
 		driver.switchTo().frame(driver.findElement(By.cssSelector("div.face-content iframe")));
 		sleepSecond(1);
 		Assert.assertEquals(driver.findElement(By.cssSelector("div.lfloat div._1drq")).getText(), "166K likes");
@@ -49,9 +52,12 @@ public class Topic_16_iFrame {
 		
 		//back to default content
 		driver.switchTo().defaultContent();
-		driver.findElement(By.cssSelector("div.border_overlay")).click();
-		sleepSecond(3);
+		
+		sleepSecond(2);
+		
+		//switch to cs chat iframe
 		driver.switchTo().frame(driver.findElement(By.id("cs_chat_iframe")));
+		driver.findElement(By.cssSelector("div.border_overlay")).click();
 		
 		WebElement inputName = driver.findElement(By.cssSelector("input.input_name"));
 		WebElement inputPhone = driver.findElement(By.cssSelector("input.input_phone"));
@@ -67,14 +73,43 @@ public class Topic_16_iFrame {
 		
 		//search for excel keyword
 		driver.findElement(By.cssSelector("nav#navDesktop .live-search-bar")).sendKeys("excel");
-		sleepSecond(1);
-		action.keyDown(Keys.ENTER);
-		action.keyUp(Keys.ENTER);
+		driver.findElement(By.cssSelector("button.search-button")).click();
+		sleepSecond(2);
+		
+		//verify search result
+		List<WebElement> SearchResult = driver.findElements(By.cssSelector("div.content>h4"));
+		
+		System.out.println("Total: "+SearchResult.size());
+		Assert.assertEquals(SearchResult.size(), 9);
+		
+		String keyword = "Excel";
+		
+		for (WebElement course : SearchResult) {
+			System.out.println(course.getText());
+			Assert.assertTrue(course.getText().contains(keyword));
+			
+		}
+		
 		
 	}
 
-//	@Test
+	@Test
 	public void TC_02_() {
+		driver.get("https://netbanking.hdfcbank.com/netbanking/");
+		
+		driver.switchTo().frame("login_page");
+		
+		driver.findElement(By.cssSelector("input[name='fldLoginUserId']")).sendKeys("123456");
+		driver.findElement(By.cssSelector("a.login-btn")).click();
+		sleepSecond(2);
+		
+		WebElement pwField = driver.findElement(By.cssSelector("input#fldPasswordDispId"));
+		//driver.switchTo().frame("login_page");
+		Assert.assertTrue(pwField.isDisplayed());
+		
+		pwField.sendKeys("123456");
+		sleepSecond(2);
+		
 		
 	}
 
