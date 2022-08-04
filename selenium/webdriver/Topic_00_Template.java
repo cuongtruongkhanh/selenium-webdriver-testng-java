@@ -29,22 +29,22 @@ public class Topic_00_Template {
 
 	}
 
-	@Test
+//	@Test
 	public void TC_01_() {
 		
 	}
 
-	@Test
+//	@Test
 	public void TC_02_() {
 		
 	}
 
-	@Test
+//	@Test
 	public void TC_03_() {
 		
 	}
 
-	@Test
+//	@Test
 	public void TC_04_() {
 		
 	}
