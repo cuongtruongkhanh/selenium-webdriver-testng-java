@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,9 +58,9 @@ public class Topic_24_ExplicitWait_Home {
 //		System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
 //		driver = new EdgeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		explicitWait = new WebDriverWait(driver, 15);
+		explicitWait = new WebDriverWait(driver, 20);
 		jsExecutor = (JavascriptExecutor)driver;
 		
 	}
@@ -172,13 +174,13 @@ public class Topic_24_ExplicitWait_Home {
 		driver.findElement(By.cssSelector(" button.swal2-confirm")).click();
 		
 		//verify delete thanh cong
-		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.swal2-popup")));
-		//Assert.assertEquals(driver.findElement(By.cssSelector("div.swal2-content>div#swal2-content")).getText(), "1 items have been deleted");
-		//System.out.println(driver.findElement(By.cssSelector("div#swal2-content")).getText());
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.swal2-content>div#swal2-content")));
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.swal2-confirm")));
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.swal2-content>div#swal2-content")).getText(), "1 items have been deleted");
+		System.out.println(driver.findElement(By.cssSelector("div.swal2-content>div#swal2-content")).getText());
 		
 		//click ok
-		//driver.findElement(By.cssSelector("button.swal2-confirm")).click();
-		//jsExecutor.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("button.swal2-confirm")));
+		driver.findElement(By.cssSelector("button.swal2-confirm")).click();
 		
 		//verify
 		Assert.assertTrue(driver.findElement(By.xpath("//h5[contains(text(),'This file does not exist.')]")).isDisplayed());
