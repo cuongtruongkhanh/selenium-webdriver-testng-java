@@ -45,7 +45,7 @@ public class Topic_21_FindElement_FindElements {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		WebElement startButton = driver.findElement(By.cssSelector("div#start>button"));
 		startButton.click();
-		
+		//check
 		//verify
 		WebElement welcomeWord = driver.findElement(By.cssSelector("div#finish>h4"));
 		Assert.assertEquals(welcomeWord.getText(), "Hello World!");
