@@ -200,6 +200,6 @@ public class Topic_24_ExplicitWait_Home {
 	
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
