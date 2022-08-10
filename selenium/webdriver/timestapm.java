@@ -1,15 +1,28 @@
 package webdriver;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class timestapm {
 
-	    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	        // method 1
-	        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-	        System.out.println(timestamp);                      // 2021-03-24 16:34:26.666
-
+	    	System.out.println(getTimeStam());
+	    	sleepSecond(2);
+	    	System.out.println(getTimeStam());
+	    	
 	    }
+
+	public static String getTimeStam() {
+		Date date = new Date();
+		return date.toString();
+		
+	}
 	
+	public static void sleepSecond(long timeSleep) {
+		try {
+			Thread.sleep(timeSleep*1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
