@@ -1,5 +1,4 @@
 package webdriver;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
