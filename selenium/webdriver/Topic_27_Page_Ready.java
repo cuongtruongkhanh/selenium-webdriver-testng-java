@@ -1,12 +1,16 @@
 package webdriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -18,6 +22,7 @@ public class Topic_27_Page_Ready {
 	String projectPath = System.getProperty("user.dir");
 	WebDriverWait explicitWait;
 	JavascriptExecutor jsExecutor;
+	Actions action;
 	
 	public void sleepSecond(long timeSleep) {
 		try {
@@ -30,23 +35,25 @@ public class Topic_27_Page_Ready {
 	
 	@BeforeClass
 	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
+//		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+//		driver = new FirefoxDriver();
+		
 		
 		
 //		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 //		driver = new ChromeDriver();
-//		
-//		System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
-//		driver = new EdgeDriver();
 		
+		System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
+		driver = new EdgeDriver();
+		
+		action = new Actions(driver);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		explicitWait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 
 	}
 
-	@Test
+//	@Test
 	public void TC_01_OrangeHRM() {
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/dashboard");
 		
@@ -74,8 +81,34 @@ public class Topic_27_Page_Ready {
 		
 	}
 
-//	@Test
-	public void TC_02_() {
+	@Test
+	public void TC_02_TestProject() {
+		driver.get("https://blog.testproject.io/");
+		String keyword = "Selenium";
+
+		
+		//check popup
+		if(driver.findElement(By.cssSelector("div.mailch-wrap")).isDisplayed()) {
+			//close popup
+			driver.findElement(By.cssSelector("div.close-mailch")).click();
+		}
+		
+		WebElement searchForm = driver.findElement(By.cssSelector("section#search-2 input.search-field"));
+		//action.moveToElement(searchForm).perform();
+		
+		searchForm.sendKeys(keyword);
+		driver.findElement(By.cssSelector("section#search-2 span.glass")).click();
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h2.page-title")));
+		Assert.assertTrue(isPageLoadedSuccess());
+		
+		List<WebElement> allTitle = driver.findElements(By.cssSelector("h3.post-title"));
+		
+		for (WebElement postTitle : allTitle) {
+			String title = postTitle.getText();
+			System.out.println(title);	
+			Assert.assertTrue(title.contains(keyword));
+		}
+		
 		
 	}
 
