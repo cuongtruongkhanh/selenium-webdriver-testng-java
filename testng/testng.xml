@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Facebook">
+  <test name="Test on Chrome browser">
+    <classes>
+      <class name="tech.Topic_01_Annotation"/>
+    </classes>
+  </test> 
+</suite> 
+<!-- chỉ dẫn của TestNG giúp cho 1 hàm Java chạy/trigger theo ý đồ nào đó 
+Nếu xóa các chỉ dẫn đi thì chức năng nhiệm vụ của các hàm như nhau 
+Chạy trước/ chạy sau
+Suit / Before group/ After Group-->
