@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,27 +44,18 @@ public class Topic_08_Textbox_TextArea_TrangChecked {
 		driver.findElement(By.name("firstName")).sendKeys(FirstName);
 		driver.findElement(By.name("lastName")).sendKeys(LastName);
 		
-		sleepInSecond(10);
+		sleepInSecond(8);
 		driver.findElement(By.cssSelector("button.oxd-button.orangehrm-left-space")).click();
 
-		//sleepInSecond(10);
-//		Assert.assertEquals(driver.findElement(By.name("firstName")).getText(), FirstName);
-//		Assert.assertEquals(driver.findElement(By.name("lastName")).getText(), LastName);
-
-
-
-	}
-
-	@Test
-	public void TC_03_() {
-
-	}  
-
-	@Test
-	public void TC_04_() {
+		sleepInSecond(8);
+		String firstnameConfirm =  driver.findElement(By.name("firstName")).getAttribute("value");
+		String lastNameConfirm =  driver.findElement(By.name("lastName")).getAttribute("value");
+		
+		//Confirm
+		Assert.assertEquals(firstnameConfirm, FirstName);
+		Assert.assertEquals(lastNameConfirm, LastName);
 
 	}
-
 
 	@AfterClass
 	public void afterClass() {
@@ -74,7 +66,6 @@ public class Topic_08_Textbox_TextArea_TrangChecked {
 		try {
 			Thread.sleep(timeInSecond * 1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
