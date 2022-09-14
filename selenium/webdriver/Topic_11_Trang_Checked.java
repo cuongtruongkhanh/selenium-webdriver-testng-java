@@ -48,21 +48,6 @@ public class Topic_11_Trang_Checked {
 
 	}
 
-	@Test
-	public void TC_02_() {
-
-	}
-
-	@Test
-	public void TC_03_() {
-
-	}
-
-	@Test
-	public void TC_04_() {
-
-	}
-
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
